@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 开发环境版本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        <span>{{ message }}</span>
+        <hr>
+        <span>{{name}}</span>
+        <hr>
+        <a :href="url">快捶我，有惊喜</a>
+        <hr>
+
+        <a href="#" v-if='value'>dog is my dog</a>
+        <!-- <a href="#" v-else>cat cat cat</a> -->
+        <hr>
+        <a href="#" v-show='value'>name is my name</a>
+        <hr>
+        <ul>
+            <li v-for='(index,item) in items'>{{index}}---->{{item}}</li>
+        </ul>
+        <hr>
+        <button v-on:click='login'>登录呀</button>
+        <hr>
+        <button @click='register'>注册搞起来</button>
+        <hr>
+        <button @click='add(count,total)'>加一再加一</button>
+        <hr>
+        <textarea name="box" id="dog" cols="30" rows="10">{{total}}</textarea>
+    </div>
+    
+
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello world!',
+            name: 'luyizhou',
+            url:'http://www.baidu.com',
+            value:false,
+            items:['python','mysql','django','linux','html'],
+            count:2,
+            total:1,
+        },
+        methods:{
+            login:function(){
+                alert('hell,luyizhou');
+            },
+            register:function(){
+                alert('welcome join us');
+            },
+            add:function(count,total){
+                this.total*=count
+                // alert(this.total)
+            }
+        }
+
+    })
+</script>
+</html>
